@@ -1,0 +1,8 @@
+# Force LF line endings for shell scripts (critical: CRLF breaks the
+# container entrypoint), keep wars binary.
+*.sh text eol=lf
+Dockerfile text eol=lf
+*.war binary
+*.html text eol=lf
+*.xml text eol=lf
+*.md text eol=lf
