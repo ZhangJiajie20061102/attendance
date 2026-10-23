@@ -22,12 +22,21 @@ handles three cases based on the `studentId` parameter:
 - `studentId` not blank — record `(studentId, seatId)` and confirm
 - `studentId` blank — show "Student Id can not be blank"
 
-## Build (local)
+## Build (local, NetBeans Ant project)
+
+The `source/` folder is the actual NetBeans **Java Web > Web Application**
+project (`File > New Project`), including `build.xml` and the `nbproject/`
+folder that NetBeans generates. Open `source/` in NetBeans and press F11
+(Build), or run Ant from the command line:
 
 ```
-javac -cp javax.servlet-api-4.0.1.jar -d web/WEB-INF/classes src/java/attendance/Attend.java
-jar -cvf attendance.war -C web .
+cd source
+ant clean dist          # NetBeans Ant build -> build/web + dist/attendance.war
+jar -cvf attendance.war -C build/web .
 ```
+
+`build/web` is the exploded web root; the `attendance.war` shipped in this
+repo was produced by exactly that build (Java 11 bytecode, major version 55).
 
 ## Deploy (Render.com)
 
