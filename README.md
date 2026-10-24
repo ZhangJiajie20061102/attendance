@@ -8,8 +8,7 @@ to Render.com inside a Tomcat 9 Docker container.
 
 | File | Purpose |
 |------|---------|
-| `attendance.war` | The web application (index.html + `attendance.Attend` servlet) |
-| `ROOT.war` | Tiny helper app that redirects `/` to `/attendance/` so the root URL opens the form directly |
+| `attendance.war` | The web application (index.html + `attendance.Attend` servlet), built by the NetBeans Ant project in `source/` |
 | `Dockerfile` | Tomcat 9 (JDK 11) image that runs the war |
 | `entrypoint.sh` | Patches Tomcat's `server.xml` so Tomcat listens on Render's `$PORT` |
 
@@ -48,8 +47,8 @@ repo was produced by exactly that build (Java 11 bytecode, major version 55).
 
 App URLs:
 
-- https://attend95712.onrender.com/ (redirects to the app)
-- https://attend95712.onrender.com/attendance/ (the app itself)
+- https://attend95712.onrender.com/ (the same war deployed as the root context)
+- https://attend95712.onrender.com/attendance/ (the app under its own context)
 
 ## Notes
 

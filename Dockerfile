@@ -11,9 +11,10 @@ RUN rm -rf /usr/local/tomcat/webapps/ROOT \
 # Copy the war file into Tomcat's webapps folder
 COPY attendance.war /usr/local/tomcat/webapps/attendance.war
 
-# Optional convenience: make the site root redirect to /attendance/
-# so https://attend95712.onrender.com/ opens the app directly.
-COPY ROOT.war /usr/local/tomcat/webapps/ROOT.war
+# The very same war is also deployed as the root context, so that the URL
+# required by the assignment (https://attend95712.onrender.com/) opens the
+# application directly. Nothing is rewritten: it is the same unmodified war.
+COPY attendance.war /usr/local/tomcat/webapps/ROOT.war
 
 # Use an entry point that adapts the port to Render's PORT variable
 COPY entrypoint.sh /usr/local/tomcat/bin/entrypoint.sh
